@@ -1,0 +1,31 @@
+# Visual Studio and IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.sln.iml
+.idea/
+
+# Build results
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Local development configuration
+appsettings.Development.json
+.env
+.env.local
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Test Results
+TestResults/
