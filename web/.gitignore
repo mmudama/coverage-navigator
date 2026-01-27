@@ -1,0 +1,5 @@
+node_modules/
+dist/
+
+# Local environment variables (committed: .env.example)
+.env.local
