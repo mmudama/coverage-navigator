@@ -5,7 +5,9 @@ using CoverageNavigator.Api.Services;
 namespace CoverageNavigator.Api.Controllers;
 
 [ApiController]
-[Route("api/chat")]
+[Route("api/[controller]")]
+[Produces("application/json")]
+[Consumes("application/json")]
 public class ChatController : ControllerBase
 {
     private readonly IAIConversationService _conversationService;
@@ -17,7 +19,13 @@ public class ChatController : ControllerBase
         _sessionStore = sessionStore;
     }
 
+    /// <summary>
+    /// Send a message to the AI and get a response
+    /// </summary>
     [HttpPost]
+    [ProducesResponseType(typeof(ChatResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     public async Task<ActionResult<ChatResponse>> SendMessage([FromBody] ChatRequest request)
     {
         if (string.IsNullOrWhiteSpace(request.Message))
@@ -36,7 +44,12 @@ public class ChatController : ControllerBase
         }
     }
 
+    /// <summary>
+    /// Get conversation history for a session
+    /// </summary>
     [HttpGet("session/{sessionId}")]
+    [ProducesResponseType(typeof(ConversationSession), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<ConversationSession> GetSession(string sessionId)
     {
         if (!_sessionStore.SessionExists(sessionId))
@@ -48,15 +61,23 @@ public class ChatController : ControllerBase
         return Ok(session);
     }
 
+    /// <summary>
+    /// Delete a session and its conversation history
+    /// </summary>
     [HttpDelete("session/{sessionId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
     public ActionResult DeleteSession(string sessionId)
     {
         _sessionStore.DeleteSession(sessionId);
         return NoContent();
     }
 
+    /// <summary>
+    /// Create a new session
+    /// </summary>
     [HttpPost("session")]
-    public ActionResult<ConversationSession> CreateSession() 
+    [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+    public ActionResult<object> CreateSession() 
     {
         var session = _sessionStore.GetOrCreateSession(null);
         return Ok(new { sessionId = session.SessionId });
