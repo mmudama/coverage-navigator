@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using CoverageNavigator.Api.Models;
+using CoverageNavigator.Contracts.Models;
 using CoverageNavigator.Api.Services;
 
 namespace CoverageNavigator.Api.Controllers;

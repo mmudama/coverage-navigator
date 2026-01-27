@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CoverageNavigator.Api\CoverageNavigator.Api.csproj" />
+    <ProjectReference Include="..\..\contracts\CoverageNavigator.Contracts\CoverageNavigator.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

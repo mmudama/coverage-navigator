@@ -1,4 +1,4 @@
-using CoverageNavigator.Api.Models;
+using CoverageNavigator.Contracts.Models;
 
 namespace CoverageNavigator.Api.Services;
 
@@ -86,3 +86,4 @@ public class SystemPromptService : ISystemPromptService
         return identifiers;
     }
 }
+

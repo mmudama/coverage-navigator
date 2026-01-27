@@ -2,7 +2,7 @@ using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Moq;
-using CoverageNavigator.Api.Models;
+using CoverageNavigator.Contracts.Models;
 using CoverageNavigator.Api.Services;
 
 namespace CoverageNavigator.Api.Tests.Services;
@@ -490,3 +490,4 @@ public class SystemPromptServiceTests : IDisposable
 
     #endregion
 }
+

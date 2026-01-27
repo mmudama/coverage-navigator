@@ -1,4 +1,4 @@
-namespace CoverageNavigator.Api.Models;
+namespace CoverageNavigator.Contracts.Models;
 
 public class ConversationSession
 {

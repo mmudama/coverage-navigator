@@ -1,4 +1,4 @@
-using CoverageNavigator.Api.Models;
+using CoverageNavigator.Contracts.Models;
 
 namespace CoverageNavigator.Api.Services;
 
@@ -30,3 +30,4 @@ public class NoOpSessionPersistenceService : ISessionPersistenceService
         return Task.CompletedTask;
     }
 }
+

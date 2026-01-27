@@ -1,4 +1,4 @@
-using CoverageNavigator.Api.Models;
+using CoverageNavigator.Contracts.Models;
 using CoverageNavigator.Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);

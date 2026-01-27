@@ -1,5 +1,5 @@
 using System.Collections.Concurrent;
-using CoverageNavigator.Api.Models;
+using CoverageNavigator.Contracts.Models;
 
 namespace CoverageNavigator.Api.Services;
 
